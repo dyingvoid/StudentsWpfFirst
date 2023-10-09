@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace StudentsWpfFirst
 {
@@ -20,9 +8,60 @@ namespace StudentsWpfFirst
     /// </summary>
     public partial class MainWindow : Window
     {
+        public decimal Price { get; set; }
+
+        public decimal Discount { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            BtnCalculate.Click += Button_Click;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bool isNegative = IsNegative();
+
+            if (isNegative)
+            {
+                LabelError.Content = MakeErrorMessage();
+            }
+            else
+            {
+                LabelError.Content = "";
+                decimal resultDiscount = CalculateDiscountRubles(Price, Discount);
+                ResultPrice.Text = (Price - resultDiscount).ToString();
+                ResultDiscount.Text = resultDiscount.ToString();
+            }
+        }
+
+        private decimal CalculateDiscountRubles1(decimal price1, decimal price2)
+        {
+            return price2 - price1;
+        }
+
+        private decimal CalculateDiscountRubles(decimal price, decimal discount)
+        {
+            return price * (discount / 100);
+        }
+
+    private bool IsNegative()
+        {
+            return Math.Sign(Price) == -1 || 
+                   Math.Sign(Discount) == -1;
+        }
+
+        private string MakeErrorMessage()
+        {
+            string error = "Ошибки: ";
+            
+            if (Math.Sign(Price) == -1)
+                error += "цена отрицательная; ";
+            if (Math.Sign(Discount) == -1)
+                error += "скидка отрицательная; ";
+
+            return error;
         }
     }
 }

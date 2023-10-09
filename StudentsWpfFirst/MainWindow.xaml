@@ -6,7 +6,51 @@
         xmlns:local="clr-namespace:StudentsWpfFirst"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel Orientation="Horizontal">
+        <Grid VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Цена: "/>
+            <TextBox x:Name="PriceBox" Grid.Row="0" Grid.Column="1" Width="96" Text="{Binding Price}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="₽"/>
+            
+            <Label Grid.Row="1" Margin="10"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Скидка: "/>
+            <TextBox x:Name="SaleBox" Grid.Row="2" Grid.Column="1" Width="96" Text="{Binding Discount}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="%"/>
+            
+            <Button x:Name="BtnCalculate" Grid.Row="1" Grid.Column="2" Content="Посчитать"/>
+        </Grid>
+        <Grid VerticalAlignment="Top" Margin="20 0 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Итоговая цена: "/>
+            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="ResultPrice"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="₽"/>
+            
+            <Label Grid.Row="1" Margin="10"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Скидка: "/>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="ResultDiscount"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="₽"/>
+        </Grid>
+        <Label x:Name="LabelError" Margin="20"/>
+    </StackPanel>
 </Window>
