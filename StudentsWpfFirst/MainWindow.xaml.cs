@@ -62,5 +62,10 @@ namespace StudentsWpfFirst
 
             return error;
         }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         FontSize="15">
-    <StackPanel Orientation="Horizontal">
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
         <Grid VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -53,5 +53,6 @@
             <TextBlock Grid.Row="2" Grid.Column="2" Text="₽"/>
         </Grid>
         <Label x:Name="LabelError" Margin="20"/>
+        <Button Click="Close" Content="Close" />
     </StackPanel>
 </Window>
