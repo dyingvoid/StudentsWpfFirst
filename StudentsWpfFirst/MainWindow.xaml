@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsWpfFirst"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        FontSize="15">
     <StackPanel Orientation="Horizontal">
         <Grid VerticalAlignment="Top">
             <Grid.RowDefinitions>
@@ -28,7 +29,7 @@
             <TextBox x:Name="SaleBox" Grid.Row="2" Grid.Column="1" Width="96" Text="{Binding Discount}"/>
             <TextBlock Grid.Row="2" Grid.Column="2" Text="%"/>
             
-            <Button x:Name="BtnCalculate" Grid.Row="1" Grid.Column="2" Content="Посчитать"/>
+            <Button x:Name="BtnCalculate" Grid.Row="1" Grid.Column="2" Content="Посчитать" Click="Button_Click"/>
         </Grid>
         <Grid VerticalAlignment="Top" Margin="20 0 0 0 ">
             <Grid.RowDefinitions>

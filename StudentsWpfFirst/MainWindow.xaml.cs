@@ -16,7 +16,6 @@ namespace StudentsWpfFirst
         {
             InitializeComponent();
             DataContext = this;
-            BtnCalculate.Click += Button_Click;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
